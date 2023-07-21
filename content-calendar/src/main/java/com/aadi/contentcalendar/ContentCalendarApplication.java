@@ -8,6 +8,7 @@ public class ContentCalendarApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ContentCalendarApplication.class, args);
+
 	}
 
 }
