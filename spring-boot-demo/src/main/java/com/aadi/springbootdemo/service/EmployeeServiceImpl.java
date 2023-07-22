@@ -7,6 +7,7 @@ import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
+import com.aadi.springbootdemo.exception.EmployeeNotFoundException;
 import com.aadi.springbootdemo.model.Employee;
 
 @Service
@@ -30,8 +31,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Optional<Employee> getEmployeeById(String id) {
-        return employees.stream().filter(c -> c.getEmployeeId().equals(id)).findFirst();
+    public Employee getEmployeeById(String id) {
+        Optional<Employee> emp = employees.stream().filter(c -> c.getEmployeeId().equals(id)).findFirst();
+
+        if (emp.isPresent())
+            return emp.get();
+
+        throw new EmployeeNotFoundException("Employee not found with ID: " + id);
     }
 
 }
