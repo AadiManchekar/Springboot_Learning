@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,7 +16,7 @@ import com.aadi.springbootdemo.model.Employee;
 import com.aadi.springbootdemo.service.EmployeeService;
 
 @RestController
-@RequestMapping("/employees")
+@RequestMapping("v1/employees")
 public class EmployeeController {
 
     // any implementation for that interface will be injected automatically
@@ -35,6 +36,11 @@ public class EmployeeController {
     @GetMapping("/{id}")
     public Employee getEmployee(@PathVariable String id) {
         return employeeService.getEmployeeById(id);
+    }
+
+    @DeleteMapping("/{id}")
+    public String deleteEmployeeById(@PathVariable String id) {
+        return employeeService.deleteEmployeeById(id);
     }
 
 }

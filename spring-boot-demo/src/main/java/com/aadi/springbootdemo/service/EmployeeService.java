@@ -1,7 +1,6 @@
 package com.aadi.springbootdemo.service;
 
 import java.util.List;
-import java.util.Optional;
 
 import com.aadi.springbootdemo.model.Employee;
 
@@ -12,4 +11,6 @@ public interface EmployeeService {
     List<Employee> getAllEmployees();
 
     Employee getEmployeeById(String id);
+
+    String deleteEmployeeById(String id);
 }
