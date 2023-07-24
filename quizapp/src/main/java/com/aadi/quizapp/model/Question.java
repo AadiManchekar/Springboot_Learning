@@ -12,8 +12,8 @@ import lombok.Data;
 public class Question {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @SequenceGenerator(name = "question_seq", sequenceName = "question_seq", allocationSize = 1)
+    @SequenceGenerator(name = "question_id_sequence", sequenceName = "question_id_sequence", allocationSize = 1, initialValue = 21)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "question_id_sequence")
     private Integer id;
     private String questionTitle;
     private String option1;

@@ -11,6 +11,14 @@ import com.aadi.quizapp.model.Question;
 @Service
 public class QuestionService {
 
+    private Integer generateQuestionId() {
+        // Logic to generate a unique ID for the question
+        // You can use a random generator, timestamp, or any other mechanism to generate
+        // the ID
+        // For this example, let's generate a random integer between 1 and 1000
+        return (int) (Math.random() * 1000) + 1;
+    }
+
     @Autowired
     QuestionDao questionDao;
 
@@ -20,6 +28,16 @@ public class QuestionService {
 
     public List<Question> getQuestionsByCategory(String category) {
         return questionDao.findByCategory(category);
+    }
+
+    public String addQuestion(Question question) {
+        if (question.getId() == null) {
+            // Generate an ID for the question
+            question.setId(generateQuestionId());
+        }
+
+        questionDao.save(question);
+        return "Success";
     }
 
 }
