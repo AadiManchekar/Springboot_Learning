@@ -8,20 +8,19 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class UserController {
+  //   @RequestMapping("/")
+  //   public String home() {
+  //     return "hello world";
+  //   }
 
-  @RequestMapping("/")
-  public String home() {
-    return "hello world";
-  }
+  //   @GetMapping("/dummyuser")
+  //   public User createDummyUser() {
+  //     User user = new User("1", "Aadi", "amjanthree@gmail.com");
+  //     return user;
+  //   }
 
-  @GetMapping("/dummyuser")
-  public User createDummyUser() {
-    User user = new User("1", "Aadi", "amjanthree@gmail.com");
-    return user;
-  }
-
-  @GetMapping("/{id}")
-  public String pathVariable(@PathVariable String id){
-    return id;
-  }
+  //   @GetMapping("/{id}")
+  //   public String pathVariable(@PathVariable String id){
+  //     return id;
+  //   }
 }
