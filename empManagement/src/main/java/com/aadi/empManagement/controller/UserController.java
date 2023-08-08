@@ -1,6 +1,8 @@
 package com.aadi.empManagement.controller;
 
 import com.aadi.empManagement.model.User;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -12,9 +14,14 @@ public class UserController {
     return "hello world";
   }
 
-  @RequestMapping("/dummyuser")
+  @GetMapping("/dummyuser")
   public User createDummyUser() {
     User user = new User("1", "Aadi", "amjanthree@gmail.com");
     return user;
+  }
+
+  @GetMapping("/{id}")
+  public String pathVariable(@PathVariable String id){
+    return id;
   }
 }
