@@ -1,17 +1,14 @@
 package com.aadi.empManagement.service;
 
+import com.aadi.empManagement.model.Employee;
 import java.util.List;
 
-import com.aadi.empManagement.model.Employee;
-
 public interface EmployeeService {
+  Employee saveEmployee(Employee emp);
 
-    Employee saveEmployee(Employee emp);
+  List<Employee> getAllEmployees();
 
-    List<Employee> getAllEmployees();
+  Employee getEmployeeById(String id);
 
-    Employee getEmployeeById(String id);
-
-    String deleteEmployeeById(String id);
-    
+  String deleteEmployeeById(String id);
 }
