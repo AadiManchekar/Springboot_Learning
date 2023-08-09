@@ -1,5 +1,6 @@
 package com.aadi.empManagement.service;
 
+import com.aadi.empManagement.error.EmployeeNotFoundException;
 import com.aadi.empManagement.model.Employee;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +32,8 @@ public class EmployeeServiceImpl implements EmployeeService {
       .stream()
       .filter(emp -> emp.getEmployeeId().equals(id))
       .findFirst()
-      .get();
+      .orElseThrow(() ->
+        new EmployeeNotFoundException("Employee Not found with ID " + id)
+      );
   }
 }
