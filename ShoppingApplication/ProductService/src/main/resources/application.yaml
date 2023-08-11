@@ -7,6 +7,8 @@ spring:
     hibernate:
       ddl-auto: update # You can change this to your desired value (e.g., create, update, none)
     show-sql: true # Set to true to see SQL statements in logs
+  application:
+    name: PRODUCT-SERVICE
 
 server:
   port: 8080 # Change to the desired port for your Spring Boot application
@@ -15,4 +17,11 @@ logging:
   level:
     root: INFO # Adjust log levels as needed for your application
 
-# Other configuration properties can go here
+eureka:
+  instances:
+    prefer-ip-addresses: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
