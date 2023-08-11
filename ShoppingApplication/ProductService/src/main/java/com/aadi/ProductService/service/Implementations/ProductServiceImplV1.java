@@ -1,7 +1,10 @@
 package com.aadi.ProductService.service.Implementations;
 
+import static org.springframework.beans.BeanUtils.copyProperties;
+
 import com.aadi.ProductService.entity.Product;
 import com.aadi.ProductService.model.ProductRequest;
+import com.aadi.ProductService.model.ProductResponse;
 import com.aadi.ProductService.repository.ProductRepository;
 import com.aadi.ProductService.service.ProductService;
 import lombok.extern.log4j.Log4j2;
@@ -29,5 +32,22 @@ public class ProductServiceImplV1 implements ProductService {
 
     log.info("Product " + product.getProductId() + " Created");
     return product.getProductId();
+  }
+
+  @Override
+  public ProductResponse getProductById(long id) {
+    log.info("Get the product for productId: " + id);
+    Product product = productRepository
+      .findById(id)
+      .orElseThrow(() ->
+        new RuntimeException("Product with given id not found" + id)
+      );
+
+    ProductResponse productResponse = new ProductResponse();
+    // we can use the builder pattern or use BeanUtils
+    // since in addProduct i used Builder pattern here i will use BeanUtils
+    // make sure all the fields are same
+    copyProperties(product, productResponse);
+    return productResponse;
   }
 }
