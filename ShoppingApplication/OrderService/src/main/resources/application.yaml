@@ -15,4 +15,13 @@ server:
 
 logging:
   level:
-    root: INFO # Adjust log levels as needed for your application
+    root: INFO # Adjust log levels as needed for your 
+    
+eureka:
+  instances:
+    prefer-ip-addresses: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
