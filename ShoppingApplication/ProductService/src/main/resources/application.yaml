@@ -9,6 +9,8 @@ spring:
     show-sql: true # Set to true to see SQL statements in logs
   application:
     name: PRODUCT-SERVICE
+  config:
+    import: configserver:http://localhost:9296
 
 server:
   port: 8080 # Change to the desired port for your Spring Boot application
@@ -17,11 +19,11 @@ logging:
   level:
     root: INFO # Adjust log levels as needed for your application
 
-eureka:
-  instances:
-    prefer-ip-addresses: true
-  client:
-    fetch-registry: true
-    register-with-eureka: true
-    service-url:
-      defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
+# eureka:
+#   instances:
+#     prefer-ip-addresses: true
+#   client:
+#     fetch-registry: true
+#     register-with-eureka: true
+#     service-url:
+#       defaultZone: ${EUREKA_SERVER_ADDRESS:http://localhost:8761/eureka}
