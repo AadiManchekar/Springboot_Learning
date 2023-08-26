@@ -11,6 +11,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+// responsible for loading user details by username during the authentication process
 @Service
 public class UserService implements UserDetailsService {
 
@@ -20,15 +21,18 @@ public class UserService implements UserDetailsService {
   @Override
   public UserDetails loadUserByUsername(String username)
     throws UsernameNotFoundException {
-    System.out.println("In the user Detail Service");
+    System.out.println("In the User Details Service");
 
-    if (!username.equals("Ethan")) throw new UsernameNotFoundException(
-      "Not Ethan"
+    if (!username.equals("Ethan")) throw new UsernameNotFoundException("Ethan");
+
+    Set<Role> authorities = new HashSet<>();
+    authorities.add(new Role(1, "USER"));
+
+    return new ApplicationUser(
+      1,
+      "Ethan",
+      encoder.encode("password"),
+      authorities
     );
-
-    Set<Role> roles = new HashSet<>();
-    roles.add(new Role(1, "USER"));
-
-    return new ApplicationUser(1, "Ethan", encoder.encode("password"), roles);
   }
 }

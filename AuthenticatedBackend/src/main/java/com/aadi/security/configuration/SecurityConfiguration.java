@@ -14,7 +14,24 @@ import org.springframework.security.web.SecurityFilterChain;
 @Configuration
 public class SecurityConfiguration {
 
-  // removes the form authentication so we can set our own auth
+  @Bean
+  public PasswordEncoder passwordEncoder() {
+    return new BCryptPasswordEncoder();
+  }
+
+  // Authentication Manager
+  // AuthenticationManager is a core component responsible for authenticating users. It takes care of validating user credentials, handling authentication-related logic, and making sure that the authentication process is secure.
+  @Bean
+  public AuthenticationManager authenticationManager(
+    UserDetailsService detailsService
+  ) {
+    // DaoAuthenticationProvider is one of the implementations of the AuthenticationProvider
+    DaoAuthenticationProvider daoProvider = new DaoAuthenticationProvider();
+    daoProvider.setUserDetailsService(detailsService);
+    return new ProviderManager(daoProvider);
+    // ProviderManager is yet another implementation of the AuthenticationManager interface. It takes one or more AuthenticationProvider instances (in this case, just the DaoAuthenticationProvider) and uses them to authenticate users.
+  }
+
   @Bean
   public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     return http
@@ -23,19 +40,5 @@ public class SecurityConfiguration {
       .httpBasic()
       .and()
       .build();
-  }
-
-  @Bean
-  public PasswordEncoder passwordEncoder() {
-    return new BCryptPasswordEncoder();
-  }
-
-  @Bean
-  public AuthenticationManager authenticationManager(
-    UserDetailsService detailsService
-  ) {
-    DaoAuthenticationProvider doaProvider = new DaoAuthenticationProvider();
-    doaProvider.setUserDetailsService(detailsService);
-    return new ProviderManager(doaProvider);
   }
 }

@@ -2,13 +2,9 @@ package com.aadi.security.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -19,6 +15,7 @@ import org.springframework.security.core.GrantedAuthority;
 @Table(name = "roles")
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class Role implements GrantedAuthority {
 
   @Id
@@ -26,5 +23,6 @@ public class Role implements GrantedAuthority {
   @Column(name = "role_id")
   private Integer roleId;
 
+  // now we want role
   private String authority;
 }
