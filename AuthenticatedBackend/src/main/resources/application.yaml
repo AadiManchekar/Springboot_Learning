@@ -5,6 +5,6 @@ spring:
     password: root
   jpa:
     hibernate:
-      ddl-auto: update # You can change this to your desired value (e.g., create, update, none)
+      ddl-auto: create-drop
     show-sql: true # Set to true to see SQL statements in logs
 
