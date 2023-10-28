@@ -1,0 +1,42 @@
+# Compiled class files
+*.class
+
+# Log files
+*.log
+
+# Spring Boot specific files
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# IDE specific files
+.idea
+.project
+.settings
+.classpath
+.factorypath
+.metadata
+.target
+.sts4-cache
+
+# Test specific files
+**/target/test-classes
+**/target/surefire-reports
+**/target/
+
+# Other files to ignore
+*.iml
+*.ipr
+*.iws
+.DS_Store
+.idea/
+.cache/
+__pycache__
+*.orig
+
+proto-pull
+proto-generate
+proto-setup-ssh
