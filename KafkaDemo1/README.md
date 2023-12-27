@@ -1,7 +1,7 @@
 docker compose up -d
 
 
-
+(Remove KafkaConsumer)
 docker exec -it kafka bash
 
 cd /opt/kafka_2.13-2.8.1/bin
