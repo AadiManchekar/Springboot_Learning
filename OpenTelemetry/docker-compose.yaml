@@ -4,6 +4,8 @@ services:
     container_name: prometheus
     image: prom/prometheus
     restart: always
+    extra_hosts:
+      - host.docker.internal:host-gateway
     command:
       - --config.file=/etc/prometheus/prometheus.yaml
     volumes:
