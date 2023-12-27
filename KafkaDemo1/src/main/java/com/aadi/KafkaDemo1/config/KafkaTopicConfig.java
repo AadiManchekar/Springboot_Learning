@@ -12,4 +12,9 @@ public class KafkaTopicConfig {
     public NewTopic aadiTopic() {
         return TopicBuilder.name("aadiTopic").build();
     }
+
+    @Bean
+    public NewTopic aadiTopicJson() {
+        return TopicBuilder.name("aadiTopicJson").build();
+    }
 }
