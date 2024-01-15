@@ -1,0 +1,4 @@
+com/example/api/core/product/Product.class
+com/example/api/exceptions/NotFoundException.class
+com/example/api/core/product/ProductService.class
+com/example/api/exceptions/InvalidInputException.class
