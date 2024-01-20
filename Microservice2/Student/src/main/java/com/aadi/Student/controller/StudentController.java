@@ -20,7 +20,7 @@ public class StudentController {
 
   private final StudentService service;
 
-  @PostMapping("path")
+  @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public void save(@RequestBody Student student) {
     service.saveStudent(student);
