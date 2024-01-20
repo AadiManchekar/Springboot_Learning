@@ -1,6 +1,6 @@
 
 eureka:
-  instace:
+  instance:
     hostname: localhost
   client:
     register-with-eureka: false
