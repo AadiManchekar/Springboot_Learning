@@ -1,0 +1,44 @@
+[
+    {
+        "id": 1,
+        "firstName": "StudentA1",
+        "lastName": "LastA1",
+        "email": "studentA1@example.com",
+        "schoolId": 1
+    },
+    {
+        "id": 2,
+        "firstName": "StudentA2",
+        "lastName": "LastA2",
+        "email": "studentA2@example.com",
+        "schoolId": 1
+    },
+    {
+        "id": 3,
+        "firstName": "StudentB1",
+        "lastName": "LastB1",
+        "email": "studentB1@example.com",
+        "schoolId": 2
+    },
+    {
+        "id": 4,
+        "firstName": "StudentB2",
+        "lastName": "LastB2",
+        "email": "studentB2@example.com",
+        "schoolId": 2
+    },
+    {
+        "id": 5,
+        "firstName": "StudentC1",
+        "lastName": "LastC1",
+        "email": "studentC1@example.com",
+        "schoolId": 3
+    },
+    {
+        "id": 6,
+        "firstName": "StudentC2",
+        "lastName": "LastC2",
+        "email": "studentC2@example.com",
+        "schoolId": 3
+    }
+]
