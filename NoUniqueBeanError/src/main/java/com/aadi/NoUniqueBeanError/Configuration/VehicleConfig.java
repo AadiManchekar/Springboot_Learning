@@ -27,4 +27,12 @@ public class VehicleConfig {
     veh.setName("Suzuki");
     return veh;
   }
+
+  // to name a bean
+  @Bean("F1Car")
+  Vehicle vehicle4() {
+    var veh = new Vehicle();
+    veh.setName("F1");
+    return veh;
+  }
 }

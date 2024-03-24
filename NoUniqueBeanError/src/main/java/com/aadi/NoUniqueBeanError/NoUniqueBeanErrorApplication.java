@@ -33,5 +33,8 @@ public class NoUniqueBeanErrorApplication {
 
     Vehicle veh = context.getBean("vehicle1", Vehicle.class);
     System.out.println(veh.getName());
+
+	Vehicle veh1 = context.getBean("F1Car", Vehicle.class);
+    System.out.println(veh1.getName());
   }
 }
